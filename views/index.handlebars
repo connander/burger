@@ -9,10 +9,10 @@
 <!-- Form to Submit Burger Names -->
 <div class="row">
     <div class="col-12">
-        <form id="addForm">
+        <form class= "create-form">
             <div class="form-group">
                 <label for="burgerName">Enter a burger name to add it to the menu:</label>
-                <input id="burgerName" class="form-control" type="text" placeholder="Yum!" required>
+                <input id="burgerName"type="text" name="name">
             </div>
             <button type="submit">Add to Menu</button>
         </form>
@@ -27,9 +27,9 @@
             <div class="card-body">
                 <ul>
                     {{#each burgers}}
-                    {{#unless devoured}}
-                    {{> burgers/burgerBlock devoured=false}}
-                    {{/unless}}
+                    {{#if devoured}}
+                    {{> burgers/burger-block devoured=false}}
+                    {{/if}}
                     {{/each}}
                 </ul>
             </div>
@@ -43,9 +43,9 @@
             <div class="card-body">
                 <ul>
                     {{#each burgers}}
-                    {{#if devoured}}
-                    {{> burgers/burgerBlock devoured=true}}
-                    {{/if}}
+                    {{#unless devoured}}
+                    {{> burgers/burger-block devoured=true}}
+                    {{/unless}}
                     {{/each}}
                 </ul>
             </div>
